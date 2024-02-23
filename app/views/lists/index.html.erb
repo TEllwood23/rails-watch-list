@@ -6,8 +6,9 @@ Lists Index
 
 <ul>
   <% @lists.each do |list| %>
+<! -- Ad links within iteration -->
   <li>
-    <%= list.name %>
+    <%=link_to list.name, list_path(list) %>
   </li>
   <% end %>
 <ul>
