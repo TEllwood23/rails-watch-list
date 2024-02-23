@@ -8,10 +8,15 @@
 
 <ul>
   <% @lists.each do |list| %>
-<! -- Ad links within iteration -->
+
+<div class="movie-list-item" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
   <li>
     <%=link_to list.name, list_path(list) %>
   </li>
+</div>
+
+
+
   <% end %>
 <ul>
 
