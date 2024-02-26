@@ -2,6 +2,38 @@
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
+
+# require 'rest-client'
+# require 'json'
+
+# api_key = ENV['OMDB_API_KEY']
+
+# puts "Seeding Movies"
+# Movie.destroy_all
+
+# begin
+#   response = RestClient.get("http://www.omdbapi.com/?s=popular&apikey=#{api_key}")
+#   movie_list = JSON.parse(response.body)
+#   movie_titles = movie_list['Search'].map { |movie| movie['Title'] }
+#   movies = []
+#   movie_titles.each do |title|
+#   response = RestClient.get("http://www.omdbapi.com/?t=#{title}&apikey=#{api_key}")
+#   movie_data = JSON.parse(response.body)
+#   movie = {
+#     title: movie_data['Title'],
+#     overview: movie_data['Plot'],
+#     rating: movie_data['imdbRating']
+#   }
+#   movies << movie
+# end
+
+#   movies.each do |movie_attrs|
+#     Movie.create(movie_attrs)
+#   end
+
+# rescue RestClient::ExceptionWithResponse => e
+#   puts "Error: #{e.response}"
+# end
 # Example:
 #
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
@@ -21,5 +53,5 @@ Movie.create!(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal master
 
 puts "Creating lists..."
 
-List.create!(name: "old")
-List.create!(name: "new")
+List.create!(name: "Old")
+List.create!(name: "New")
